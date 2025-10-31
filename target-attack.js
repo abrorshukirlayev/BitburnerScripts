@@ -11,7 +11,6 @@ export async function main(ns) {
     return;
   }
 
-  ns.tail();
   const targetMoney = (ns.args[1] !== undefined && Number.isFinite(Number(ns.args[1])))
   ? Number(ns.args[1])
   : ns.getServerMaxMoney(target);
@@ -40,11 +39,11 @@ export async function main(ns) {
   const hasRoot = ns.hasRootAccess(target);
   if (!hasRoot) ns.tprint(`WARN: No root on ${target}. grow/weaken/hack may fail or be slower.`);
 
-  ns.print("========================================");
-  ns.print(`TARGET-ATTACK START -> target=${target}`);
-  ns.print(`TargetMoney=$${Math.floor(targetMoney).toLocaleString()}  MinSecurity=${minSecurity}`);
-  ns.print(`Runner host=${host}  yourHack=${myHack}  targetReqHack=${reqHack}  hasRoot=${hasRoot}`);
-  ns.print("========================================");
+  ns.tprint("========================================");
+  ns.tprint(`TARGET-ATTACK START -> target=${target}`);
+  ns.tprint(`TargetMoney=$${Math.floor(targetMoney).toLocaleString()}  MinSecurity=${minSecurity}`);
+  ns.tprint(`Runner host=${host}  yourHack=${myHack}  targetReqHack=${reqHack}  hasRoot=${hasRoot}`);
+  ns.tprint("========================================");
 
   while (true) {
     try {
