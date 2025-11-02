@@ -4,9 +4,9 @@ export async function main(ns) {
   ns.tail();
   ns.clearLog();
 
-  const buyThreshold = Number(ns.args[0]) || 0.65;
+  const buyThreshold = Number(ns.args[0]) || 0.60;
   const sellThreshold = Number(ns.args[1]) || 0.55;
-  const moneyKeep = Number(ns.args[2]) || 1_000_000_000;
+  const moneyKeep = Number(ns.args[2]) || 100_000_000;
   const cycleMs = Number(ns.args[3]) || 5000;
 
   if (!ns.stock || typeof ns.stock.getSymbols !== "function") {
